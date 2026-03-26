@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useReducer, useCallback } from 'react';
 import type { OSState, OSAction, WindowState } from '../types';
 import { APPS } from '../config/apps';
+import { MENUBAR_HEIGHT, DOCK_HEIGHT } from '../config/layout';
 
 function initWindows(): Record<string, WindowState> {
   const map: Record<string, WindowState> = {};
@@ -85,9 +86,9 @@ function reducer(state: OSState, action: OSAction): OSState {
             isMaximized: true,
             prevPosition: { ...win.position },
             prevSize: { ...win.size },
-            position: { x: 0, y: 28 }, // 28px = menubar height
+            position: { x: 0, y: MENUBAR_HEIGHT },
             // viewport dims passed in from caller — keeps reducer pure
-            size: { width: action.viewportWidth, height: action.viewportHeight - 28 - 72 },
+            size: { width: action.viewportWidth, height: action.viewportHeight - MENUBAR_HEIGHT - DOCK_HEIGHT },
           },
         },
       };
