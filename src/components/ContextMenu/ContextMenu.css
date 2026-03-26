@@ -1,0 +1,33 @@
+.context-menu {
+  position: fixed;
+  background: rgba(40, 40, 52, 0.82);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  padding: 4px;
+  min-width: 200px;
+  z-index: 9000;
+}
+
+.context-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.9);
+  cursor: default;
+}
+
+.context-menu-item:hover {
+  background: var(--accent-blue);
+}
+
+.context-menu-separator {
+  height: 1px;
+  background: var(--glass-border);
+  margin: 3px 6px;
+}
