@@ -92,7 +92,19 @@ export const APPS: AppConfig[] = [
 ];
 
 export const WALLPAPERS = [
-  'radial-gradient(ellipse at 20% 50%, #1a0533 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, #0d1f3c 0%, transparent 55%), radial-gradient(ellipse at 60% 80%, #0a1a0a 0%, transparent 50%), radial-gradient(ellipse at 40% 40%, #2d0a3e 0%, transparent 45%), linear-gradient(135deg, #0a0a12 0%, #12061e 50%, #060d1a 100%)',
-  'radial-gradient(ellipse at 30% 60%, #1a0a00 0%, transparent 60%), radial-gradient(ellipse at 70% 30%, #001a2e 0%, transparent 55%), radial-gradient(ellipse at 50% 80%, #0d0020 0%, transparent 50%), linear-gradient(135deg, #080808 0%, #1a0d00 50%, #000d1a 100%)',
-  'radial-gradient(ellipse at 50% 50%, #001a1a 0%, transparent 70%), radial-gradient(ellipse at 20% 80%, #1a001a 0%, transparent 55%), linear-gradient(135deg, #060a0a 0%, #0a0620 100%)',
+  // Dot grid — dark with subtle cyan dot pattern
+  `radial-gradient(circle, rgba(0,255,255,0.07) 1px, transparent 1px),
+   radial-gradient(circle, rgba(0,255,255,0.04) 1px, transparent 1px),
+   linear-gradient(135deg, #050510 0%, #080818 100%)`,
+  // Scanlines — horizontal line texture
+  `repeating-linear-gradient(
+     0deg,
+     transparent,
+     transparent 2px,
+     rgba(0,255,255,0.03) 2px,
+     rgba(0,255,255,0.03) 4px
+   ),
+   linear-gradient(135deg, #050510 0%, #06060f 100%)`,
+  // Solid dark — flat and minimal
+  `linear-gradient(135deg, #050510 0%, #080818 100%)`,
 ];
