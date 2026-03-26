@@ -19,20 +19,21 @@
 .boot-apple {
   width: 80px;
   height: 80px;
-  fill: #fff;
+  fill: #00ffff;
+  image-rendering: pixelated;
 }
 
 .boot-progress-track {
   width: 200px;
-  height: 3px;
-  background: rgba(255,255,255,0.15);
-  border-radius: 2px;
+  height: 4px;
+  background: rgba(0, 255, 255, 0.15);
+  border: 1px solid rgba(0, 255, 255, 0.3);
   overflow: hidden;
 }
 
 .boot-progress-bar {
   height: 100%;
-  background: #fff;
-  border-radius: 2px;
+  background: #00ffff;
   transition: width 0.05s linear;
+  box-shadow: 0 0 8px #00ffff;
 }

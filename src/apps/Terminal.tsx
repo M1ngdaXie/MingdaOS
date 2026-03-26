@@ -144,7 +144,7 @@ export default function Terminal() {
       <div style={{ flex: 1, overflowY: 'auto' }}>
         {lines.map((line) => (
           <div key={line.key} style={{
-            color: line.type === 'input' ? '#64d2ff' : '#e2e8f0',
+            color: line.type === 'input' ? '#00ffff' : '#e2e8f0',
             whiteSpace: 'pre',
             lineHeight: 1.6,
           }}>
@@ -154,7 +154,7 @@ export default function Terminal() {
         <div ref={bottomRef} />
       </div>
       <div style={{ display: 'flex', alignItems: 'center', marginTop: 4 }}>
-        <span style={{ color: '#64d2ff', whiteSpace: 'nowrap' }}>{PROMPT}</span>
+        <span style={{ color: '#00ffff', whiteSpace: 'nowrap' }}>{PROMPT}</span>
         <input
           ref={inputRef}
           value={input}
@@ -168,7 +168,7 @@ export default function Terminal() {
             color: '#e2e8f0',
             fontFamily: 'var(--font-mono)',
             fontSize: 13,
-            caretColor: '#64d2ff',
+            caretColor: '#00ffff',
           }}
           spellCheck={false}
           autoComplete="off"
