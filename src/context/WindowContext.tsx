@@ -30,17 +30,31 @@ const initialState: OSState = {
 function reducer(state: OSState, action: OSAction): OSState {
   switch (action.type) {
     case 'OPEN': {
-      const newZ = state.topZ + 1;
+      const base = state.topZ + 1;
+      // Normalize z-indices if we're approaching Dock's z-index (500)
+      if (base >= 480) {
+        const openWindows = Object.values(state.windows).filter(w => w.isOpen && w.id !== action.id);
+        openWindows.sort((a, b) => a.zIndex - b.zIndex);
+        const normalized: Record<string, WindowState> = { ...state.windows };
+        openWindows.forEach((w, i) => { normalized[w.id] = { ...w, zIndex: 10 + i }; });
+        normalized[action.id] = {
+          ...state.windows[action.id],
+          isOpen: true,
+          isMinimized: false,
+          zIndex: 10 + openWindows.length,
+        };
+        return { ...state, topZ: 10 + openWindows.length, windows: normalized };
+      }
       return {
         ...state,
-        topZ: newZ,
+        topZ: base,
         windows: {
           ...state.windows,
           [action.id]: {
             ...state.windows[action.id],
             isOpen: true,
             isMinimized: false,
-            zIndex: newZ,
+            zIndex: base,
           },
         },
       };
@@ -94,13 +108,21 @@ function reducer(state: OSState, action: OSAction): OSState {
       };
     }
     case 'FOCUS': {
-      const newZ = state.topZ + 1;
+      const base = state.topZ + 1;
+      if (base >= 480) {
+        const openWindows = Object.values(state.windows).filter(w => w.isOpen && w.id !== action.id);
+        openWindows.sort((a, b) => a.zIndex - b.zIndex);
+        const normalized: Record<string, WindowState> = { ...state.windows };
+        openWindows.forEach((w, i) => { normalized[w.id] = { ...w, zIndex: 10 + i }; });
+        normalized[action.id] = { ...state.windows[action.id], zIndex: 10 + openWindows.length, isMinimized: false };
+        return { ...state, topZ: 10 + openWindows.length, windows: normalized };
+      }
       return {
         ...state,
-        topZ: newZ,
+        topZ: base,
         windows: {
           ...state.windows,
-          [action.id]: { ...state.windows[action.id], zIndex: newZ, isMinimized: false },
+          [action.id]: { ...state.windows[action.id], zIndex: base, isMinimized: false },
         },
       };
     }
@@ -109,7 +131,7 @@ function reducer(state: OSState, action: OSAction): OSState {
         ...state,
         windows: {
           ...state.windows,
-          [action.id]: { ...state.windows[action.id], position: { x: action.x, y: action.y } },
+          [action.id]: { ...state.windows[action.id], position: { x: action.x, y: action.y }, isMaximized: false },
         },
       };
     case 'RESIZE':
@@ -117,7 +139,7 @@ function reducer(state: OSState, action: OSAction): OSState {
         ...state,
         windows: {
           ...state.windows,
-          [action.id]: { ...state.windows[action.id], size: { width: action.width, height: action.height } },
+          [action.id]: { ...state.windows[action.id], size: { width: action.width, height: action.height }, isMaximized: false },
         },
       };
     case 'SET_WALLPAPER':

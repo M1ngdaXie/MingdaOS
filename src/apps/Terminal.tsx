@@ -88,20 +88,21 @@ export default function Terminal() {
 
   function handleSubmit() {
     const cmd = input.trim().toLowerCase();
-    const newLines: Line[] = [...lines, { type: 'input', text: PROMPT + input, key: nextKey() }];
+    const inputLine: Line = { type: 'input', text: PROMPT + input, key: nextKey() };
 
-    if (cmd === '') {
-      setLines([...newLines, { type: 'output', text: '', key: nextKey() }]);
-    } else if (cmd === 'clear') {
+    if (cmd === 'clear') {
       setLines([]);
+    } else if (cmd === '') {
+      setLines(prev => [...prev, inputLine, { type: 'output', text: '', key: nextKey() }]);
     } else if (COMMANDS[cmd]) {
-      COMMANDS[cmd].forEach(l => newLines.push({ type: 'output', text: l, key: nextKey() }));
-      newLines.push({ type: 'output', text: '', key: nextKey() });
-      setLines(newLines);
+      const outputLines: Line[] = COMMANDS[cmd].map(l => ({ type: 'output' as const, text: l, key: nextKey() }));
+      outputLines.push({ type: 'output', text: '', key: nextKey() });
+      setLines(prev => [...prev, inputLine, ...outputLines]);
     } else {
-      newLines.push({ type: 'output', text: `zsh: command not found: ${cmd}`, key: nextKey() });
-      newLines.push({ type: 'output', text: '', key: nextKey() });
-      setLines(newLines);
+      setLines(prev => [...prev, inputLine,
+        { type: 'output', text: `zsh: command not found: ${cmd}`, key: nextKey() },
+        { type: 'output', text: '', key: nextKey() }
+      ]);
     }
 
     if (cmd) setHistory(h => [cmd, ...h].slice(0, 50));
