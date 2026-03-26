@@ -1,11 +1,9 @@
 .context-menu {
   position: fixed;
-  background: rgba(40, 40, 52, 0.82);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
-  border-radius: 8px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  background: #0d0d1a;
+  border: 2px solid #333333;
+  border-radius: 0;
+  box-shadow: 3px 3px 0 #000000;
   padding: 4px;
   min-width: 200px;
   z-index: 9000;
@@ -15,19 +13,21 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 10px;
-  border-radius: 5px;
-  font-size: 13px;
-  color: rgba(255,255,255,0.9);
+  padding: 8px 10px;
+  border-radius: 0;
+  font-size: 8px;
+  color: rgba(255, 255, 255, 0.9);
   cursor: default;
+  letter-spacing: 0.5px;
 }
 
 .context-menu-item:hover {
-  background: var(--accent-blue);
+  background: var(--pixel-cyan);
+  color: #000;
 }
 
 .context-menu-separator {
-  height: 1px;
-  background: var(--glass-border);
+  height: 2px;
+  background: #333333;
   margin: 3px 6px;
 }

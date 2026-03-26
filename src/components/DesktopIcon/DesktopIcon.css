@@ -6,32 +6,34 @@
   cursor: default;
   width: 72px;
   padding: 6px;
-  border-radius: 8px;
+  border-radius: 0;
   transition: background 0.1s;
 }
 
 .desktop-icon:hover {
-  background: rgba(255,255,255,0.08);
+  background: rgba(0, 255, 255, 0.08);
 }
 
 .desktop-icon-img {
   width: 56px;
   height: 56px;
-  border-radius: var(--radius-icon);
+  border-radius: 0;
+  border: 2px solid #000;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 28px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  box-shadow: 3px 3px 0 #000;
 }
 
 .desktop-icon-label {
-  font-size: 11px;
-  color: #fff;
+  font-size: 8px;
+  color: var(--pixel-cyan);
   text-align: center;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  text-shadow: 1px 1px 0 #000;
   max-width: 72px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  letter-spacing: 0.5px;
 }
