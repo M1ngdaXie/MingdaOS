@@ -1,0 +1,38 @@
+.boot-screen {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  z-index: 9999;
+}
+
+.boot-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.boot-apple {
+  width: 80px;
+  height: 80px;
+  fill: #fff;
+}
+
+.boot-progress-track {
+  width: 200px;
+  height: 3px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.boot-progress-bar {
+  height: 100%;
+  background: #fff;
+  border-radius: 2px;
+  transition: width 0.05s linear;
+}
