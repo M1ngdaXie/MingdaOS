@@ -1,0 +1,53 @@
+.menubar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--menubar-height);
+  background: rgba(20, 20, 28, 0.72);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-bottom: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  z-index: 1000;
+  user-select: none;
+}
+
+.menubar-left {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.menubar-logo {
+  font-size: 14px;
+  margin-right: 8px;
+  cursor: default;
+}
+
+.menubar-item {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+  padding: 2px 8px;
+  border-radius: 4px;
+  cursor: default;
+}
+
+.menubar-item:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.menubar-right {
+  display: flex;
+  align-items: center;
+}
+
+.menubar-clock {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+}
