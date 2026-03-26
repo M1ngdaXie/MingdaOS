@@ -4,10 +4,8 @@
   left: 0;
   right: 0;
   height: var(--menubar-height);
-  background: rgba(20, 20, 28, 0.72);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border-bottom: 1px solid var(--glass-border);
+  background: #080816;
+  border-bottom: 2px solid rgba(0, 255, 255, 0.2);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -26,19 +24,20 @@
   font-size: 14px;
   margin-right: 8px;
   cursor: default;
+  color: var(--pixel-cyan);
 }
 
 .menubar-item {
-  font-size: 12px;
-  font-weight: 500;
-  color: rgba(255,255,255,0.85);
+  font-size: 8px;
+  font-weight: 400;
+  color: var(--pixel-cyan);
   padding: 2px 8px;
-  border-radius: 4px;
   cursor: default;
+  letter-spacing: 0.5px;
 }
 
 .menubar-item:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgba(0, 255, 255, 0.15);
 }
 
 .menubar-right {
@@ -47,7 +46,7 @@
 }
 
 .menubar-clock {
-  font-size: 12px;
-  font-weight: 500;
-  color: rgba(255,255,255,0.85);
+  font-size: 8px;
+  color: var(--pixel-cyan);
+  letter-spacing: 0.5px;
 }
