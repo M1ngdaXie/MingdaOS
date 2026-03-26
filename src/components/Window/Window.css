@@ -1,14 +1,16 @@
 .window {
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-window);
-  box-shadow: var(--glass-shadow);
+  background: #0d0d1a;
+  border: 2px solid #333333;
+  border-radius: 0;
+  box-shadow: var(--pixel-shadow);
   display: flex;
   flex-direction: column;
   overflow: hidden;
   transition: opacity 0.15s;
+}
+
+.window--focused {
+  border-color: rgba(0, 255, 255, 0.4);
 }
 
 .window--unfocused {
@@ -17,11 +19,12 @@
 
 .window-titlebar {
   height: var(--titlebar-height);
+  background: #111122;
   display: flex;
   align-items: center;
   padding: 0 12px;
   cursor: move;
-  border-bottom: 1px solid var(--glass-border);
+  border-bottom: 2px solid #333333;
   flex-shrink: 0;
   gap: 8px;
   position: relative;
@@ -36,15 +39,15 @@
 .traffic-light {
   width: 12px;
   height: 12px;
-  border-radius: 50%;
-  border: none;
+  border-radius: 0;
+  border: 1px solid rgba(0,0,0,0.5);
   cursor: pointer;
   position: relative;
   transition: filter 0.1s;
 }
 
 .window--unfocused .traffic-light {
-  background: #666 !important;
+  background: #444 !important;
 }
 
 .traffic-light--close { background: var(--accent-red); }
@@ -63,20 +66,22 @@
   justify-content: center;
   font-size: 8px;
   font-weight: 700;
-  color: rgba(0,0,0,0.6);
+  color: rgba(0,0,0,0.7);
   line-height: 1;
 }
 
 .window-title {
   flex: 1;
   text-align: center;
-  font-size: 13px;
-  font-weight: 500;
-  color: rgba(255,255,255,0.85);
+  font-size: 9px;
+  font-weight: 400;
+  color: var(--pixel-cyan);
   pointer-events: none;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  letter-spacing: 1px;
+  white-space: nowrap;
 }
 
 .window-content {
