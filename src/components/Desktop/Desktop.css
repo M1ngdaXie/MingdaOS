@@ -1,0 +1,21 @@
+.desktop {
+  position: fixed;
+  inset: 0;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.desktop-icons {
+  position: absolute;
+  top: calc(var(--menubar-height) + 16px);
+  right: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, 80px);
+  gap: 8px;
+}
+
+.desktop-icon-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
