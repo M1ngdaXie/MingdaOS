@@ -1,0 +1,86 @@
+.window {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-window);
+  box-shadow: var(--glass-shadow);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: opacity 0.15s;
+}
+
+.window--unfocused {
+  opacity: 0.72;
+}
+
+.window-titlebar {
+  height: var(--titlebar-height);
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  cursor: move;
+  border-bottom: 1px solid var(--glass-border);
+  flex-shrink: 0;
+  gap: 8px;
+  position: relative;
+}
+
+.traffic-lights {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.traffic-light {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: filter 0.1s;
+}
+
+.window--unfocused .traffic-light {
+  background: #666 !important;
+}
+
+.traffic-light--close { background: var(--accent-red); }
+.traffic-light--minimize { background: var(--accent-yellow); }
+.traffic-light--maximize { background: var(--accent-green); }
+
+.traffic-lights:hover .traffic-light--close::after { content: '✕'; }
+.traffic-lights:hover .traffic-light--minimize::after { content: '−'; }
+.traffic-lights:hover .traffic-light--maximize::after { content: '+'; }
+
+.traffic-light::after {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  font-weight: 700;
+  color: rgba(0,0,0,0.6);
+  line-height: 1;
+}
+
+.window-title {
+  flex: 1;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+  pointer-events: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.window-content {
+  flex: 1;
+  overflow: auto;
+  color: #fff;
+}
