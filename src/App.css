@@ -1,7 +1,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --font-ui: 'Outfit', system-ui, sans-serif;
+  --font-ui: 'Press Start 2P', monospace;
   --font-mono: 'Fira Code', 'Courier New', monospace;
 
   --accent-red: #ff453a;
@@ -9,18 +9,23 @@
   --accent-green: #30d158;
   --accent-blue: #0a84ff;
   --accent-purple: #bf5af2;
-  --accent-teal: #64d2ff;
+  --accent-teal: #00ffff;
+  --accent-cyan: #00ffff;
 
-  --glass-bg: rgba(30, 30, 40, 0.55);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-blur: blur(24px) saturate(1.4);
-  --glass-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
-  --radius-window: 12px;
-  --radius-icon: 14px;
+  --glass-bg: #0d0d1a;
+  --glass-border: #333333;
+  --glass-blur: none;
+  --glass-shadow: 4px 4px 0 #000000;
+  --radius-window: 0px;
+  --radius-icon: 0px;
 
   --menubar-height: 28px;
   --dock-height: 72px;
   --titlebar-height: 36px;
+
+  --pixel-border: 2px solid #333333;
+  --pixel-shadow: 4px 4px 0 #000000;
+  --pixel-cyan: #00ffff;
 }
 
 html, body, #root {
@@ -28,5 +33,7 @@ html, body, #root {
   height: 100%;
   overflow: hidden;
   font-family: var(--font-ui);
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: none;
+  font-smooth: never;
+  image-rendering: pixelated;
 }
