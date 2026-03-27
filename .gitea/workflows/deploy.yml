@@ -17,5 +17,6 @@
                   
         - name: Deploy
           run: |
+            mkdir -p /var/www/os.m1ngdaxie.com
             rm -rf /var/www/os.m1ngdaxie.com/*
-            cp -r dist/* /var/www/os.m1ngdaxie.com/     
+            cp -r dist/* /var/www/os.m1ngdaxie.com/    
