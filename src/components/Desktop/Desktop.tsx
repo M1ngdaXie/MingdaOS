@@ -31,7 +31,10 @@ export default function Desktop() {
   return (
     <div
       className="desktop"
-      style={{ background: WALLPAPERS[state.wallpaper] }}
+      style={{
+        background: WALLPAPERS[state.wallpaper],
+        backgroundSize: WALLPAPERS[state.wallpaper].startsWith('url(') ? 'cover' : undefined,
+      }}
       onContextMenu={handleContextMenu}
       onClick={() => setCtxMenu(null)}
     >

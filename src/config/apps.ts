@@ -107,4 +107,6 @@ export const WALLPAPERS = [
    linear-gradient(135deg, #050510 0%, #06060f 100%)`,
   // Solid dark — flat and minimal
   `linear-gradient(135deg, #050510 0%, #080818 100%)`,
+  // Pixel city — neon cityscape
+  `url(/wallpaper-city.png)`,
 ];
