@@ -37,3 +37,43 @@ html, body, #root {
   font-smooth: never;
   image-rendering: pixelated;
 }
+
+/* CRT scanlines + faint phosphor glow over the entire desktop */
+#root::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 255, 255, 0.025) 0px,
+      rgba(0, 255, 255, 0.025) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+  mix-blend-mode: screen;
+  animation: crt-flicker 4.2s steps(60) infinite;
+}
+
+@keyframes crt-flicker {
+  0%, 100% { opacity: 0.85; }
+  47%      { opacity: 0.92; }
+  50%      { opacity: 0.6; }
+  53%      { opacity: 0.9; }
+}
+
+@keyframes blink-caret {
+  0%, 49%   { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.cypher-caret {
+  display: inline-block;
+  width: 0.55em;
+  margin-left: 2px;
+  background: var(--pixel-cyan);
+  color: transparent;
+  animation: blink-caret 1s steps(1) infinite;
+}

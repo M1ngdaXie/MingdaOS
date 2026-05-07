@@ -50,12 +50,19 @@ export default function Desktop() {
               gridRow: app.desktopPosition.row + 1,
             }}
           >
-            <DesktopIcon app={app} onOpen={() => openWindow(app.id)} />
+            <DesktopIcon
+              app={app}
+              onOpen={() =>
+                app.externalUrl
+                  ? window.open(app.externalUrl, '_blank', 'noopener,noreferrer')
+                  : openWindow(app.id)
+              }
+            />
           </div>
         ))}
       </div>
 
-      {APPS.map(app => (
+      {APPS.filter(app => !app.externalUrl).map(app => (
         <Window key={app.id} app={app} />
       ))}
 

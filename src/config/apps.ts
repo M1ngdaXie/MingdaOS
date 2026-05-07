@@ -89,6 +89,18 @@ export const APPS: AppConfig[] = [
     component: Trash,
     desktopPosition: { col: 1, row: 3 },
   },
+  {
+    id: 'collab',
+    title: 'Collab',
+    emoji: '',
+    iconGradient: 'linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02))',
+    iconImage: '/docnest-icon-32.png',
+    defaultSize: { width: 400, height: 360 },
+    defaultPosition: { x: 0, y: 0 },
+    component: Links,
+    desktopPosition: { col: 0, row: 4 },
+    externalUrl: 'https://collab.m1ngdaxie.com/',
+  },
 ];
 
 export const WALLPAPERS = [

@@ -21,6 +21,8 @@ export interface AppConfig {
   defaultPosition: { x: number; y: number };
   component: ComponentType;
   desktopPosition: { col: number; row: number };
+  externalUrl?: string;
+  iconImage?: string;
 }
 
 export interface OSState {

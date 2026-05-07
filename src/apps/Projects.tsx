@@ -1,7 +1,6 @@
 const PROJECTS = [
   { name: 'CampusNest', desc: 'Campus housing platform with Spring Cloud microservices, Redis caching, and k3s deployment.', tags: ['Java', 'Spring Cloud', 'Redis', 'k3s'], color: '#0a84ff' },
   { name: 'Alfred Bot', desc: 'Personal AI agent — task management, reminders, home automation bridge.', tags: ['Go', 'TypeScript', 'Bun'], color: '#bf5af2' },
-  { name: 'Warden / Bastion', desc: 'Self-hosted auth and proxy layer running on k3s with Let\'s Encrypt.', tags: ['Nginx', 'k3s', 'VLESS'], color: '#30d158' },
   { name: 'Collab Platform', desc: 'Real-time collaborative workspace with WebSocket rooms and conflict resolution.', tags: ['TypeScript', 'Bun', 'WebSocket'], color: '#ffd60a' },
   { name: '成语填空', desc: 'Daily Chinese idiom guessing game — Wordle-style, runs at chengyu.m1ngdaxie.com.', tags: ['React', 'TypeScript'], color: '#ff453a' },
 ];

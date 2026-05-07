@@ -1,5 +1,5 @@
-import { useState, useRef, useEffect } from 'react';
 import type { KeyboardEvent } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface Line { type: 'input' | 'output'; text: string; key: number }
 
@@ -8,11 +8,33 @@ const COMMANDS: Record<string, string[]> = {
     'Available commands:',
     '  help       — show this list',
     '  about      — who is mingda',
+    '  whoami     — current identity',
     '  projects   — list projects',
     '  skills     — tech stack',
     '  contact    — contact info',
+    '  pgp        — public key fingerprint',
+    '  motd       — message of the day',
     '  neofetch   — system info',
     '  clear      — clear terminal',
+  ],
+  whoami: [
+    'mingda',
+    'uid=1000  groups=(wheel,crypto,sudoers)',
+    'shell=/bin/zsh  tty=/dev/pts/0',
+  ],
+  pgp: [
+    'PGP fingerprint:',
+    '  8C50 AD5D CE0E 949E 39FA  F19D 609C 704E 544A 0BFD',
+    '',
+    'Public key: /pgp.asc',
+    'Verify before you trust.',
+  ],
+  motd: [
+    'cypherpunks write code.',
+    'privacy is necessary for an open society in the electronic age.',
+    'we cannot expect governments, corporations, or other large,',
+    'faceless organizations to grant us privacy out of their beneficence.',
+    '                                            — eric hughes, 1993',
   ],
   about: [
     'Mingda Xie (解明达)',
@@ -28,7 +50,6 @@ const COMMANDS: Record<string, string[]> = {
     'Projects:',
     '  CampusNest     — Spring Cloud housing platform',
     '  Alfred Bot     — Self-hosted AI agent',
-    '  Warden/Bastion — k3s auth + proxy layer',
     '  Collab Platform— Real-time collaborative workspace',
     '  成语填空         — Daily Chinese idiom game',
   ],
@@ -55,7 +76,7 @@ const COMMANDS: Record<string, string[]> = {
     '    .::!!!::.      Kernel: Ubuntu 24.04',
     '   .:::!!!:::.     RAM: 4GB',
     '  .::::!!!::::.    Shell: zsh',
-    ' .:::::!!!:::::.   Services: Alfred, Chengyu, k3s, VLESS',
+    ' .:::::!!!:::::.   Services: Alfred, Chengyu, k3s',
     '',
     '  nginx + k3s + let\'s encrypt',
   ],
@@ -68,8 +89,9 @@ function nextKey() { return ++lineCounter; }
 
 export default function Terminal() {
   const [lines, setLines] = useState<Line[]>([
-    { type: 'output', text: 'MingdaOS Terminal v1.0', key: nextKey() },
-    { type: 'output', text: 'Type "help" to see available commands.', key: nextKey() },
+    { type: 'output', text: 'MingdaOS Terminal v1.0  [secure tty]', key: nextKey() },
+    { type: 'output', text: 'kernel: linux 6.x | tls: 1.3 | pgp: 8C50AD5D...0BFD', key: nextKey() },
+    { type: 'output', text: 'cypherpunks write code. type "help" for commands.', key: nextKey() },
     { type: 'output', text: '', key: nextKey() },
   ]);
   const [input, setInput] = useState('');
