@@ -7,6 +7,7 @@ import Alfred from '../apps/Alfred';
 import Chengyu from '../apps/Chengyu';
 import Poker from '../apps/Poker';
 import Trash from '../apps/Trash';
+import { withVersion } from './version';
 
 export const APPS: AppConfig[] = [
   {
@@ -94,7 +95,7 @@ export const APPS: AppConfig[] = [
     title: 'Collab',
     emoji: '',
     iconGradient: 'linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02))',
-    iconImage: '/docnest-icon-32.png',
+    iconImage: withVersion('/docnest-icon-32.png'),
     defaultSize: { width: 400, height: 360 },
     defaultPosition: { x: 0, y: 0 },
     component: Links,
@@ -120,5 +121,5 @@ export const WALLPAPERS = [
   // Solid dark — flat and minimal
   `linear-gradient(135deg, #050510 0%, #080818 100%)`,
   // Pixel city — neon cityscape
-  `url(/wallpaper-city.png)`,
+  `url(${withVersion('/wallpaper-city.png')})`,
 ];

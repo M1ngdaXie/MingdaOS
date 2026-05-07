@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './MenuBar.css';
+import { APP_VERSION } from '../../config/version';
 
 const MENU_ITEMS = ['encrypt', 'sign', 'verify', 'wipe', 'about'];
 const BOOT_AT = Date.now();
@@ -19,7 +20,7 @@ export default function MenuBar() {
   return (
     <div className="menubar">
       <div className="menubar-left">
-        <span className="menubar-logo">[ MingdaOS ]</span>
+        <span className="menubar-logo">[ MingdaOS v{APP_VERSION} ]</span>
         {MENU_ITEMS.map(item => (
           <span key={item} className="menubar-item">{item}</span>
         ))}

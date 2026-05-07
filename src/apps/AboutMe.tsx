@@ -1,3 +1,5 @@
+import { APP_VERSION } from '../config/version';
+
 export default function AboutMe() {
   return (
     <div
@@ -134,7 +136,7 @@ export default function AboutMe() {
             Signed Identity
           </span>
           <a
-            href="/pgp.asc"
+            href={`/pgp.asc?v=${APP_VERSION}`}
             target="_blank"
             rel="noopener noreferrer"
             style={{
