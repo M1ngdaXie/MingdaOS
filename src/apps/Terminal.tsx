@@ -50,6 +50,7 @@ const COMMANDS: Record<string, string[]> = {
     'Projects:',
     '  CampusNest     — Spring Cloud housing platform',
     '  Alfred Bot     — Self-hosted AI agent',
+    '  rag-email      — Local-first Gmail RAG assistant (Go + Qdrant)',
     '  Collab Platform— Real-time collaborative workspace',
     '  成语填空         — Daily Chinese idiom game',
   ],
