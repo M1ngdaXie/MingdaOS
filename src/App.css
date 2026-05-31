@@ -22,6 +22,8 @@
   --menubar-height: 28px;
   --dock-height: 72px;
   --titlebar-height: 36px;
+  --mobile-statusbar-height: 44px;
+  --mobile-icon-size: 64px;
 
   --pixel-border: 2px solid #333333;
   --pixel-shadow: 4px 4px 0 #000000;

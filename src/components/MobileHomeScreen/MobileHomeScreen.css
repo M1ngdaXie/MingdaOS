@@ -1,0 +1,60 @@
+.mobile-home {
+  position: fixed;
+  inset: 0;
+  padding-top: var(--mobile-statusbar-height);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  overflow-y: auto;
+}
+
+.mobile-icon-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px 8px;
+  padding: 24px 12px 16px;
+}
+
+.mobile-icon-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-icon-img {
+  width: var(--mobile-icon-size);
+  height: var(--mobile-icon-size);
+  border: 2px solid #000;
+  box-shadow: 3px 3px 0 #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-icon-emoji {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.mobile-icon-custom {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.mobile-icon-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--pixel-cyan);
+  text-align: center;
+  letter-spacing: 0.4px;
+  max-width: 68px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

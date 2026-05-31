@@ -1,0 +1,28 @@
+.mobile-statusbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--mobile-statusbar-height);
+  background: #0d0d1a;
+  border-bottom: 2px solid rgba(0, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  z-index: 1000;
+}
+
+.mobile-statusbar-logo {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--pixel-cyan);
+  letter-spacing: 0.5px;
+}
+
+.mobile-statusbar-clock {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--pixel-cyan);
+  letter-spacing: 1px;
+}

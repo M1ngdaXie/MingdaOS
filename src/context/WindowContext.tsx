@@ -25,6 +25,7 @@ const initialState: OSState = {
   windows: initWindows(),
   topZ: 10,
   wallpaper: 0,
+  activeAppId: null,
 };
 
 function reducer(state: OSState, action: OSAction): OSState {
@@ -144,6 +145,10 @@ function reducer(state: OSState, action: OSAction): OSState {
       };
     case 'SET_WALLPAPER':
       return { ...state, wallpaper: action.index };
+    case 'MOBILE_OPEN':
+      return { ...state, activeAppId: action.id };
+    case 'MOBILE_CLOSE':
+      return { ...state, activeAppId: null };
     default:
       return state;
   }
@@ -159,6 +164,8 @@ interface WindowContextType {
   moveWindow: (id: string, x: number, y: number) => void;
   resizeWindow: (id: string, width: number, height: number) => void;
   setWallpaper: (index: number) => void;
+  openMobileApp: (id: string) => void;
+  closeMobileApp: () => void;
 }
 
 const WindowContext = createContext<WindowContextType | null>(null);
@@ -174,9 +181,11 @@ export function WindowProvider({ children }: { children: React.ReactNode }) {
   const moveWindow = useCallback((id: string, x: number, y: number) => dispatch({ type: 'MOVE', id, x, y }), []);
   const resizeWindow = useCallback((id: string, w: number, h: number) => dispatch({ type: 'RESIZE', id, width: w, height: h }), []);
   const setWallpaper = useCallback((index: number) => dispatch({ type: 'SET_WALLPAPER', index }), []);
+  const openMobileApp = useCallback((id: string) => dispatch({ type: 'MOBILE_OPEN', id }), []);
+  const closeMobileApp = useCallback(() => dispatch({ type: 'MOBILE_CLOSE' }), []);
 
   return (
-    <WindowContext.Provider value={{ state, openWindow, closeWindow, minimizeWindow, maximizeWindow, focusWindow, moveWindow, resizeWindow, setWallpaper }}>
+    <WindowContext.Provider value={{ state, openWindow, closeWindow, minimizeWindow, maximizeWindow, focusWindow, moveWindow, resizeWindow, setWallpaper, openMobileApp, closeMobileApp }}>
       {children}
     </WindowContext.Provider>
   );

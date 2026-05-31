@@ -29,6 +29,7 @@ export interface OSState {
   windows: Record<string, WindowState>;
   topZ: number;
   wallpaper: number;
+  activeAppId: string | null;
 }
 
 export type OSAction =
@@ -39,4 +40,6 @@ export type OSAction =
   | { type: 'FOCUS'; id: string }
   | { type: 'MOVE'; id: string; x: number; y: number }
   | { type: 'RESIZE'; id: string; width: number; height: number }
-  | { type: 'SET_WALLPAPER'; index: number };
+  | { type: 'SET_WALLPAPER'; index: number }
+  | { type: 'MOBILE_OPEN'; id: string }
+  | { type: 'MOBILE_CLOSE' };
