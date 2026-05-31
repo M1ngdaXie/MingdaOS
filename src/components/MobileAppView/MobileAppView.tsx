@@ -10,21 +10,11 @@ interface Props {
 
 export default function MobileAppView({ appId, onBack }: Props) {
   const app = APPS.find(a => a.id === appId);
-  const dragStartY = useRef<number | null>(null);
+  const touchStartY = useRef<number | null>(null);
 
   if (!app) return null;
 
   const AppComponent = app.component;
-
-  function handleDragStart(y: number) {
-    dragStartY.current = y;
-  }
-
-  function handleDragEnd(y: number) {
-    if (dragStartY.current === null) return;
-    if (y - dragStartY.current > 60) onBack();
-    dragStartY.current = null;
-  }
 
   return (
     <motion.div
@@ -33,14 +23,15 @@ export default function MobileAppView({ appId, onBack }: Props) {
       animate={{ x: 0 }}
       exit={{ x: '100%' }}
       transition={{ duration: 0.22, ease: 'easeOut' }}
-      onTouchStart={e => handleDragStart(e.touches[0].clientY)}
-      onTouchEnd={e => handleDragEnd(e.changedTouches[0].clientY)}
-      onMouseDown={e => handleDragStart(e.clientY)}
-      onMouseUp={e => handleDragEnd(e.clientY)}
+      onTouchStart={e => { touchStartY.current = e.touches[0].clientY; }}
+      onTouchEnd={e => {
+        if (touchStartY.current !== null && e.changedTouches[0].clientY - touchStartY.current > 60) onBack();
+        touchStartY.current = null;
+      }}
     >
       <div className="mobile-app-topbar">
         <button className="mobile-back-btn" onClick={onBack}>
-          ← back
+          ← HOME
         </button>
         <span className="mobile-app-title">{app.title}</span>
         <span className="mobile-app-topbar-spacer" />
