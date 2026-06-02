@@ -7,6 +7,7 @@ import Alfred from '../apps/Alfred';
 import Chengyu from '../apps/Chengyu';
 import Poker from '../apps/Poker';
 import Trash from '../apps/Trash';
+import Treehole from '../apps/Treehole';
 import { withVersion } from './version';
 
 export const APPS: AppConfig[] = [
@@ -101,6 +102,16 @@ export const APPS: AppConfig[] = [
     component: Links,
     desktopPosition: { col: 0, row: 4 },
     externalUrl: 'https://collab.m1ngdaxie.com/',
+  },
+  {
+    id: 'treehole',
+    title: 'Treehole',
+    emoji: '🌳',
+    iconGradient: 'linear-gradient(135deg, #1a3a1a, #2d5a2d)',
+    defaultSize: { width: 680, height: 520 },
+    defaultPosition: { x: 180, y: 100 },
+    component: Treehole,
+    desktopPosition: { col: 1, row: 4 },
   },
 ];
 

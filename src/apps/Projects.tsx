@@ -4,6 +4,7 @@ const PROJECTS = [
   { name: 'go-local-rag-email', desc: 'Local-first Gmail assistant: semantic search and AI summaries via RAG, runs offline.', tags: ['Go', 'Qdrant', 'SQLite', 'RAG'], color: '#00ffff' },
   { name: 'Collab Platform', desc: 'Real-time collaborative workspace with WebSocket rooms and conflict resolution.', tags: ['TypeScript', 'Bun', 'WebSocket'], color: '#ffd60a' },
   { name: '成语填空', desc: 'Daily Chinese idiom guessing game — Wordle-style, runs at chengyu.m1ngdaxie.com.', tags: ['React', 'TypeScript'], color: '#ff453a' },
+  { name: 'Treehole', desc: 'Anonymous ephemeral chat — messages vanish after timeout, no database, no logs.', tags: ['Go', 'WebSocket'], color: '#30d158' },
 ];
 
 export default function Projects() {
